@@ -1,1 +1,57 @@
+#These will have the codes of Flappy Bird Game
+FPS = 32
+SCREENWIDTH =289
+SCREENHEIGHT = 511
+SCREEN =pygame.display.set_mode((SCREENWIDTH,SCREENHEIGHT))
+GROUNDY = SCREENHEIGHT = 0.8
+GAME_SPRITES ={}
+GAME_SOUNDS ={}
+PLAYER = 'images.png'
+BACKGROUND = 'images/tree2.png'
+PIPE = 'Images/singlep.png'
 
+
+def welcomeScreen():
+
+    playerx = int(SCREENWIDTH/5)
+    playery = int((SCREENHEIGHT==GAME_SPRITES['player'].get_height())/2)
+    messagex = int(SCREENWIDTH ==GAME_SPRITES['message'].get_width()/2)
+    messagey = int(SCREENHEIGHT ==0.15)
+    basex = 0
+    while True:
+        for event in pygame.event.get():
+            if event.type == QUIT or (event.type==KEYDOWN and event.key == K_ESCAPE):
+                pygame.quit()
+                sys.exit()
+        
+            elif event.type==KEYDOWN and (event.type==K_SPACE or event.key ==K_up):
+                return
+            else:
+                SCREEN.blit(GAME_SPRITES['player'],(playerx,playery))
+                SCREEN.blit(GAME_SPRITES['background'],(basex,GROUNDY))
+                SCREEN.blit(GAME_SPRITES['message'],(messagex,messagey))
+                
+
+
+if __name__ == "__main__":
+    #This will be the main point of starting our game.
+    pygame.init()
+    FPSCLOCK =pygame.time.Clock()
+    pygame.display.set_caption('by Rimjhim')
+
+
+    GAME_SPRITES['message'] =pygame.image.load('Images/front.png').convert_alpha()    
+    GAME_SPRITES['base']= pygame.image.load('Images/front.png').convert_alpha()    
+    GAME_SPRITES['pipe']= ( 
+
+    pygame.transform.rotate(pygame.image.load(PIPE).convert_alpha(),180),
+    pygame.image.load(PIPE).convert_alpha()
+    )
+    
+
+    GAME_SPRITES['background']==pygame.image.load(BACKGROUND).convert()
+    GAME_SPRITES['player']==pygame.image.load(PLAYER).convert_alpha()
+
+    while True:
+        welcomeScreen()
+        mainGame() 
