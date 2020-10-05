@@ -6,9 +6,9 @@ import random
 class Bird(object):
     def __init__(self):
         self.birdRect = pygame.Rect(65, 50, 50, 50)
-        self.birdStatus = [pygame.image.load("/Users/mac/Desktop/PYTHON/flappy bird/bird0_0.png")
-                          ,pygame.image.load("/Users/mac/Desktop/PYTHON/flappy bird/bird0_1.png")
-                          ,pygame.image.load("/Users/mac/Desktop/PYTHON/flappy bird/bird0_2.png")]
+        self.birdStatus = [pygame.image.load("bird0_0.png")
+                          ,pygame.image.load("bird0_1.png")
+                          ,pygame.image.load("bird0_2.png")]
         self.status = 0
         self.birdX = 120
         self.birdY = 350
@@ -30,8 +30,8 @@ class Bird(object):
 class Pipeline(object):
     def __init__(self):
         self.wall_x = random.randint(400, 600)
-        self.pineUp = pygame.image.load("/Users/mac/Desktop/PYTHON/flappy bird/pipe_down.png")
-        self.pineDown = pygame.image.load("/Users/mac/Desktop/PYTHON/flappy bird/pipe_up.png")
+        self.pineUp = pygame.image.load("pipe_down.png")
+        self.pineDown = pygame.image.load("pipe_up.png")
 
     def update_pipeline(self):
         self.wall_x -= 5
@@ -123,7 +123,7 @@ while True:
             Bird.gravity = 5
             Bird.jumpSpeed = 10
 
-    background = pygame.image.load("/Users/mac/Desktop/PYTHON/background.jpg")
+    background = pygame.image.load("background.jpg")
 
     if check_dead():
         get_result()
